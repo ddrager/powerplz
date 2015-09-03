@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'datalogger',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,3 +82,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MQTT_BROKER_HOST = os.environ.get('MQTT_BROKER_HOST')
+MQTT_BROKER_PORT = os.environ.get('MQTT_BROKER_PORT')
+MQTT_BROKER_USER = os.environ.get('MQTT_BROKER_USER')
+MQTT_BROKER_PASSWORD = os.environ.get('MQTT_BROKER_PASSWORD')
+
+# Let's try to import local_settings.py if it exists
+# This will overwrite above settings
+try:
+    from local_settings import *
+except ImportError:
+    import sys
