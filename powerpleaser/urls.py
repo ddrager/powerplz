@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^api/', include('api.urls')),
+    url(r'^$', 'powerpleaser.views.home', name='home'),
 )
