@@ -24,3 +24,11 @@ def logdata_hem(request, curwatts = 0):
     publish_push('hem', json.dumps(result))
 
     return JsonResponse(result, safe=True)
+
+
+def logdata(request, value):
+    result = {
+        'value': value,
+        'success': True,
+    }
+    return JsonResponse(result, safe=True)
