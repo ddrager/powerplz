@@ -17,7 +17,7 @@ class DataPoint(models.Model):
     )
 
     type = models.CharField(max_length=12,choices=DATA_TYPES, default=UNKNOWN)
-    value = models.DecimalField(
+    value = models.DecimalField( # allows for 00000000.00000000 data values in db
         help_text="Value",
         default=0,
         decimal_places=8,
